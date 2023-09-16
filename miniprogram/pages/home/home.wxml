@@ -1,0 +1,9 @@
+<index-nav-bar bind:tap="navToSearchPage"/>
+
+<view style="text-align: center; color: #b9b9b9" wx:if="{{isLoading}}">
+  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
+</view>
+
+<view class="home-page-container">
+  <view>asd</view>
+</view>

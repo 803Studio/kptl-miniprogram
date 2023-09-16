@@ -21,6 +21,10 @@
       "./typings"
     ]
   },
+  "paths": {
+    "tdesign-miniprogram/*":["./miniprogram/miniprogram_npm/tdesign-miniprogram/*"],
+    "_components/*": ["./miniprogram/components/*"]
+  },
   "include": [
     "./**/*.ts"
   ],

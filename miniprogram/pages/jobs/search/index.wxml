@@ -1,0 +1,3 @@
+<view class="block">
+  <t-navbar class="block" title="搜索" left-arrow bind:go-back="handleBack" />
+</view>

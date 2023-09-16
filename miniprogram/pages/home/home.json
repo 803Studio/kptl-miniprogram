@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "index-nav-bar": "./components/homeNavBar/index",
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  }
+}
