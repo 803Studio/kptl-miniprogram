@@ -5,5 +5,12 @@
 </view>
 
 <view class="home-page-container">
-  <view>asd</view>
+  <view style="display: flex; flex-direction: column;">
+    <job-card
+      wx:for="{{jobList}}"
+      wx:key="jobId"
+      info="{{item}}"
+      style="margin-top: 10px;"
+    />
+  </view>
 </view>

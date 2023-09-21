@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "index-nav-bar": "./components/homeNavBar/index",
-    "t-loading": "tdesign-miniprogram/loading/loading"
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "job-card": "../../components/jobCard/jobCard"
   }
 }

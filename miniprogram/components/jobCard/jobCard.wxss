@@ -1,0 +1,37 @@
+.job-card-container {
+  background-color: white;
+  border-radius: 8rpx;
+  padding: 24rpx;
+  --td-tag-default-color: #f3f4f6;
+}
+
+.job-title {
+  font-weight: bold;
+  font-size: 34rpx;
+}
+
+.job-money {
+}
+
+.job-money-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-money-text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.job-footer {
+  margin-top: 10rpx;
+  --td-avatar-small-width: 48rpx;
+  display: flex;
+  justify-content: space-between;
+}

@@ -13,6 +13,7 @@
     "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "custom": true,
     "color": "#666666",

@@ -1,2 +1,59 @@
-<!--components/jobCard.wxml-->
-<text>components/jobCard.wxml</text>
+<view 
+  bind:tap="show"
+  class="job-card-container"
+>
+  <view class="job-title">
+    <t-tag wx:if="{{info === undefined}}"></t-tag>
+    <text>{{info.raw.jobName}}</text>
+  </view>
+
+  <view class="job-money">
+    <view class="job-money-info">
+      <view style="display: flex; color: #ff6000">
+        <view class="job-money-text" wx:if="{{info.raw.jobMoney.type !== 0}}">
+          <text>{{info.payNum}}</text>
+        </view>
+        <view style="width: 10rpx" />
+        <view class="job-money-type">
+          <text>{{info.payType}}</text>
+        </view>
+      </view>
+      <view style="color: gray">
+        <text>{{info.time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="job-tags">
+    <t-tag
+      wx:for="{{info.tags}}"
+      wx:key="index"
+      style="margin-right: 10rpx; margin-top: 10rpx;"
+    >{{item}}</t-tag>
+  </view>
+
+  <view class="job-footer">
+    <view style="display: flex; align-items: center;">
+      <t-avatar
+        shape="round"
+        image="https://tdesign.gtimg.com/miniprogram/images/avatar1.png"
+        size="small"
+      />
+      <view style="width: 20rpx" />
+      <text>{{info.raw.companyName}}</text>
+      <view style="width: 10rpx"/>
+      <t-tag
+        theme="warning"
+        size="small"
+        variant="light"
+      >认证</t-tag>
+    </view>
+    <view>
+      <t-button
+        theme="primary"
+        size="small"
+        shape="round"
+      >立即联系</t-button>
+    </view>
+  </view>
+</view>

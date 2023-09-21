@@ -22,8 +22,7 @@
     ]
   },
   "paths": {
-    "tdesign-miniprogram/*":["./miniprogram/miniprogram_npm/tdesign-miniprogram/*"],
-    "_components/*": ["./miniprogram/components/*"]
+    "tdesign-miniprogram/*":["./miniprogram/miniprogram_npm/tdesign-miniprogram/*"]
   },
   "include": [
     "./**/*.ts"

@@ -1,7 +1,14 @@
-// pages/home/home.ts
+import * as wxp from '../../utils/wx'
+import {fetchJobsList} from "../../service/jobs/fetchJobs";
+import {JobSummaryToShow} from "../../types/JobInfo";
+
 Page({
   data: {
-    isLoading: false
+    isLoading: false,
+    jobList: [] as JobSummaryToShow[]
+  },
+  privateData: {
+
   },
   onLoad() {
     this.init()
@@ -28,17 +35,24 @@ Page({
 
   },
   init() {
-    wx.stopPullDownRefresh()
-    console.log('init')
+    this.loadHomePage()
+  },
+  async loadHomePage() {
+    await wxp.stopPullDownRefresh()
     this.setData({
       isLoading: true
     })
-    new Promise(res => {
-      setTimeout(res, 2000)
-    }).then(() => {
-      this.setData({
-        isLoading: false
-      })
+    await this.loadJobsList()
+    this.setData({
+      isLoading: false
+    })
+  },
+  async loadJobsList(fresh = false) {
+    if (fresh) {
+      await wxp.pageScrollTo({scrollTop: 0})
+    }
+    this.setData({
+      jobList: await fetchJobsList()
     })
   },
   navToSearchPage() {

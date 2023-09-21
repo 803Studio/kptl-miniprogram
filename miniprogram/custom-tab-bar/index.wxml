@@ -1,13 +1,14 @@
 <t-tab-bar
- bindchange="onChange"
- split="{{false}}"
- value="{{active}}"
+        bindchange="onChange"
+        split="{{false}}"
+        value="{{active}}"
 >
-	<t-tab-bar-item
-	 wx:for="{{list}}"
-	 wx:key="index"
-   value="{{item.value}}"
-   icon="{{item.icon}}"
-   ariaLabel="{{item.text}}"
-	>{{item.text}}</t-tab-bar-item>
+    <t-tab-bar-item
+            wx:for="{{list}}"
+            wx:key="index"
+            value="{{item.value}}"
+            icon="{{item.icon}}"
+            ariaLabel="{{item.text}}"
+    >{{item.text}}
+    </t-tab-bar-item>
 </t-tab-bar>
