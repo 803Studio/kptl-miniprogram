@@ -3,6 +3,6 @@
   "usingComponents": {
     "index-nav-bar": "./components/homeNavBar/index",
     "t-loading": "tdesign-miniprogram/loading/loading",
-    "job-card": "../../components/jobCard/jobCard"
+    "job-list": "/components/job-list/index"
   }
 }

@@ -1,1 +1,119 @@
-/* pages/usercenter/index.wxss */
+@base-line-height: 24rpx;
+
+.user-center-container {
+  background-color: #014bff;
+}
+
+.user-center-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: @base-line-height 0 @base-line-height @base-line-height;
+  padding: @base-line-height 0 @base-line-height @base-line-height;
+}
+
+.user-status {
+  display: flex;
+}
+
+.user-name {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-around;
+  margin-left: @base-line-height;
+}
+
+.user-resume-button {
+  background-color: #f3d0b0;
+  color: #a06d38;
+  padding: @base-line-height * 0.5 @base-line-height @base-line-height * 0.5 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.user-resume-status {
+  display: flex;
+  align-items: center;
+}
+
+.user-resume-status-point {
+  width: @base-line-height * 0.5;
+  height: @base-line-height * 0.5;
+  background-color: #ffb603;
+  margin-right: @base-line-height * 0.5;
+  border-radius: 50%;
+}
+
+.user-center-detail {
+  background-color: #f8f8f7;
+  margin-top: @base-line-height;
+  padding: @base-line-height;
+  border-radius: @base-line-height*2 @base-line-height*2 0 0;
+}
+
+.user-resume-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: @base-line-height;
+  padding: @base-line-height;
+  font-size: @base-line-height;
+  background-color: #fae9e1;
+  color: #f16814;
+  border-radius: @base-line-height;
+}
+
+.access-info-card {
+  display: flex;
+  justify-content: space-around;
+}
+
+.access-info-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .info-cell-num {
+    font-size: @base-line-height * 2;
+    font-weight: bold;
+  }
+
+  .info-cell-text {
+    font-size: @base-line-height;
+    color: #676767;
+  }
+}
+
+.job-seeker-service {
+  display: flex;
+  :last-child {
+    margin: 0;
+  }
+}
+
+.resume-service-button {
+  flex: 1;
+  margin-right: @base-line-height;
+  padding: @base-line-height;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  border-radius: @base-line-height;
+  align-items: center;
+}
+
+.resume-service-button-text {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: @base-line-height;
+  font-weight: bold;
+}
+
+.resume-service-button-logo {
+  height: 64rpx;
+}

@@ -1,0 +1,37 @@
+<view class="recruiter-card-container">
+  <view class="recruiter-card-tip">
+    <text-icon
+      text="求职过程中请勿缴纳费用，保持谨慎，防止受骗！"
+      space="10rpx"
+      icon="notification-filled"
+    />
+  </view>
+
+  <view class="recruiter-card-content">
+    <view style="display: flex;">
+      <view class="recruiter-avatar">
+        <t-avatar
+          shape="round"
+          image="https://tdesign.gtimg.com/miniprogram/images/avatar1.png"
+        />
+      </view>
+      <view class="recruiter-info">
+        <view class="recruiter-company">
+          <text>四川聚部商贸有限公司</text>
+        </view>
+        <view class="recruiter-name-time">
+          <text>刘总</text>
+          <text style="margin-left: 20rpx;">1小时前</text>
+        </view>
+      </view>
+    </view>
+    <view>
+      <t-button
+        class="recruiter-button"
+        theme="primary"
+        shape="round"
+        size="small"
+      >立即联系</t-button>
+    </view>
+  </view>
+</view>

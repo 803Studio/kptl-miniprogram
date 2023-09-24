@@ -1,0 +1,6 @@
+<view class="text-icon-container">
+  <t-icon name="{{icon}}"/>
+  <view style="margin-left: {{space}};">
+    <text>{{text}}</text>
+  </view>
+</view>

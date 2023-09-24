@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "text-icon": "/components/text-icon/index",
+    "base-card": "/components/base-card/index",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
 }

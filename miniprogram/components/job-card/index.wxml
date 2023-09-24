@@ -1,6 +1,6 @@
-<view 
-  bind:tap="show"
+<view
   class="job-card-container"
+  bind:tap="handleClick"
 >
   <view class="job-title">
     <t-tag wx:if="{{info === undefined}}"></t-tag>

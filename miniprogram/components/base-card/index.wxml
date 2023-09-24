@@ -1,0 +1,15 @@
+<view class="base-card-container">
+  <view
+    wx:if="{{title.length > 0}}"
+    class="base-card-header"
+  >
+    <view class="base-card-title">
+      <text>{{title}}</text>
+    </view>
+    <view>
+      <slot name="ex" />
+    </view>
+  </view>
+
+  <slot />
+</view>

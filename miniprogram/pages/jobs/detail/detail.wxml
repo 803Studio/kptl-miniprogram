@@ -1,0 +1,85 @@
+<view class="job-detail-container">
+  <view>
+    <t-navbar title="职位详情" left-arrow bind:go-back="handleBack" />
+  </view>
+
+  <view>
+    <view class="job-header">
+      <view class="job-header-text">
+        财务
+      </view>
+
+      <view class="job-header-text" style="color: #ff6101;">
+        3500-4500元/月
+      </view>
+
+      <view style="margin-top: 24rpx;">
+        <t-tag size="large" theme="warning" variant="light" style="margin-right: 24rpx;">全职</t-tag>
+        <t-tag size="large" theme="primary" variant="light" style="margin-right: 24rpx;">1人</t-tag>
+        <t-tag size="large" theme="primary" variant="light">会计财务/会计财务其他相关</t-tag>
+      </view>
+
+      <view class="job-fresh">
+        刷新时间: 1小时前
+      </view>
+    </view>
+
+    <recruiter-card/>
+
+    <view class="job-info-card">
+      <view class="job-info-card-title">
+        <text>工作福利</text>
+      </view>
+
+      <view class="job-benefits-tags">
+        <view
+          wx:for="{{benefits}}"
+          wx:key="index"
+          class="job-benefits-tag"
+        >
+          <t-tag size="large">{{item}}</t-tag>
+        </view>
+      </view>
+
+      <view class="job-info-card-title">
+        <text>职位要求</text>
+      </view>
+
+      <view class="job-requirement-tags">
+        <text-icon
+          wx:for="{{requirementTags}}"
+          wx:key="index"
+          icon="{{item.icon}}"
+          text="{{item.text}}"
+          space="10rpx"
+          class="job-requirement-tag"
+        />
+      </view>
+
+      <view class="job-requirement-lines">
+        <view
+          wx:for="{{requirementLines}}"
+          wx:key="index"
+          class="job-requirement-line"
+        >
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <t-divider content="已经到底了" />
+    </view>
+  </view>
+
+  <view>
+    <t-tab-bar>
+      <t-tab-bar-item value="index" icon="home">首页</t-tab-bar-item>
+      <t-tab-bar-item value="share" icon="share-1">分享</t-tab-bar-item>
+      <t-tab-bar-item value="save" icon="star">收藏</t-tab-bar-item>
+      <view style="width: 60%; padding-right: 20rpx;">
+        <t-button block theme="primary">立即联系</t-button>
+      </view>
+    </t-tab-bar>
+  </view>
+</view>

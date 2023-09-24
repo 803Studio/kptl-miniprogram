@@ -4,7 +4,8 @@
     "pages/chat/index",
     "pages/jobs/index",
     "pages/usercenter/index",
-    "pages/jobs/search/index"
+    "pages/jobs/search/index",
+    "pages/jobs/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

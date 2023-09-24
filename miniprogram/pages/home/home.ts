@@ -55,6 +55,11 @@ Page({
       jobList: await fetchJobsList()
     })
   },
+  handleJobListClick(ev: any) {
+    wx.navigateTo({
+      url: `/pages/jobs/detail/detail?id=${ev.detail.id}`,
+    })
+  },
   navToSearchPage() {
     wx.navigateTo({
       url: '/pages/jobs/search/index',

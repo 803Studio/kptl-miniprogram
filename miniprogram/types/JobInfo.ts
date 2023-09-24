@@ -12,6 +12,7 @@ export interface JobSummaryRaw {
 
 export interface JobSummaryToShow {
   raw: JobSummaryRaw
+  id: number
   tags: string[]
   time: string
   payNum: string

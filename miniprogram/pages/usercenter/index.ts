@@ -1,4 +1,3 @@
-// pages/usercenter/index.ts
 Page({
   data: {
 

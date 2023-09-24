@@ -1,0 +1,9 @@
+<view class="job-list-wrapper">
+  <job-card
+    wx:for="{{jobSummaryList}}"
+    wx:key="id"
+    info="{{item}}"
+    style="margin-bottom: 20rpx;"
+    bind:click="onJobCardClick"
+  />
+</view>
