@@ -1,4 +1,5 @@
 import {userLocalStore} from "../store/comm/user";
+import * as userStore from "../store/usercenter/index";
 
 const apiServer = 'https://api.cdl.zone/kptl'
 
@@ -17,7 +18,7 @@ const fmtUrl = (path: string, q?: GetQuery): string => {
   for (const key of keys) {
     const value = q[key]
     if (value !== undefined) {
-      temp.push(`${key}${value === '' ? '': '='}${value}`)
+      temp.push(`${key}${value === '' ? '' : '='}${value}`)
     }
   }
   return `${apiServer}${path}?${temp.join('&')}`
