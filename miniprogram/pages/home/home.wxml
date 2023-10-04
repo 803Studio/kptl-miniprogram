@@ -4,9 +4,30 @@
   <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color/>
 </view>
 
+
 <view class="home-page-container">
+  <t-swiper
+    current="{{0}}"
+    autoplay="{{true}}"
+    duration="{{500}}"
+    interval="{{3000}}"
+    navigation="{{ { type: 'dots' } }}"
+    list="{{swiperList}}"
+  />
+
+  <view style="margin-bottom: 24rpx; margin-top: 24rpx;">
+    <t-grid class="block">
+      <t-grid-item text="全部职位" image="https://tdesign.gtimg.com/miniprogram/images/example1.png" />
+      <t-grid-item text="全部企业" image="https://tdesign.gtimg.com/miniprogram/images/example2.png" />
+      <t-grid-item text="兼职招聘" image="https://tdesign.gtimg.com/miniprogram/images/example3.png" />
+      <t-grid-item text="简历库" image="https://tdesign.gtimg.com/miniprogram/images/example1.png" />
+    </t-grid>
+  </view>
+
   <job-list
     jobSummaryList="{{jobList}}"
     bind:click="handleJobListClick"
   />
+
+  <load-more list-is-empty="{{!jobList.length}}" status="{{jobListLoadStatus}}" bind:retry="onReTry" />
 </view>

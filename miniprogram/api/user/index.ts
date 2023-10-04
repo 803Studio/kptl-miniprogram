@@ -1,7 +1,7 @@
 import { createGetApi } from "../util";
 
 const url = {
-  userLogin: '/user/login'
+  userLogin: '/dev/login'
 }
 
-export const userLogin = createGetApi(url.userLogin)
+export const userLogin = createGetApi<{token: string}>(url.userLogin)

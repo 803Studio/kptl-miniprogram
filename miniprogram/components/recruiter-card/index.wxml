@@ -17,10 +17,10 @@
       </view>
       <view class="recruiter-info">
         <view class="recruiter-company">
-          <text>四川聚部商贸有限公司</text>
+          <text>{{company}}</text>
         </view>
         <view class="recruiter-name-time">
-          <text>刘总</text>
+          <text>{{recruiter}}</text>
           <text style="margin-left: 20rpx;">1小时前</text>
         </view>
       </view>

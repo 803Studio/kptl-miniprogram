@@ -1,50 +1,49 @@
-export interface JobSummaryRaw {
-  jobId: number;
-  jobName: string;
-  jobLocation: string;
-  companyName: string;
-  jobTags: string;
-  companyId: number;
-  openTime: number;
-  jobMoney: JobMoney;
-  jobType: JobType;
+export enum JobSalaryPaymentMethod {
+  HOURLY = '小时',
+  MONTHLY = '月',
+  DAILY = '天',
+  WEEKLY = '周',
+  YEARLY = '年',
+  NEGOTIABLE = '面议',
+  OTHER = '其他'
 }
 
-export interface JobSummaryToShow {
-  raw: JobSummaryRaw
+export enum JobForm {
+  FULL_TIME = '全职',
+  PART_TIME = '兼职',
+  CONTRACT = '合同工',
+  INTERNSHIP = '实习',
+  TEMPORARY = '临时工',
+  VOLUNTEER = '志愿者',
+  OTHER = '其他'
+}
+
+export interface JobBenefits {
+  salary: [number, number, JobSalaryPaymentMethod]
+  items: string[]
+}
+
+export interface JobRequirements {
+  age: [number, number]
+  experience: [number, number]
+  education: string
+}
+
+export interface JobInfo {
+  // basic info
+  name: string
+  benefits: JobBenefits
+  requirements: JobRequirements
+  recruitmentNumber: number
+  type: string
+  form: JobForm
+  description: string
+
+  // addition info
+  timestamp: number
   id: number
-  tags: string[]
-  time: string
-  payNum: string
-  payType: string
-}
-
-export enum JobMoneyType {
-  F2F = 0,
-  DAY = 1,
-  MON = 2,
-  TIME = 3,
-  HOUR = 4
-}
-
-export interface JobMoney {
-  type: JobMoneyType;
-  low: number;
-  high: number;
-}
-
-export enum JobType {
-  LONG = 0,
-  SHORT = 1,
-  PARTTIMEJOB = 2
-}
-
-export interface JobDetailRaw extends JobSummaryRaw {
-  jobReq: string
-  jobNeed: number
-  industry: string
-  recruiterName: string
-  recruiterPhone: string
+  companyId: number
+  companyName: string
   recruiterId: number
-  updateTime: number
+  recruiterName: string
 }

@@ -1,11 +1,11 @@
-import {JobSummaryToShow} from "../../types/JobInfo";
+import {JobInfo} from "../../types/JobInfo";
 
 Component({
   properties: {
     jobSummaryList: {
       // @ts-ignore
       type: Array,
-      value: [] as JobSummaryToShow[]
+      value: [] as JobInfo[]
     }
   },
   data: {

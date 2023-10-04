@@ -1,3 +1,6 @@
+import {jobMap} from "../../../store/jobs/index";
+import {JobSalaryPaymentMethod} from "../../../types/JobInfo";
+
 interface RequirementTag {
   icon: string
   text: string
@@ -6,6 +9,10 @@ interface RequirementTag {
 
 Page({
   data: {
+    name: '',
+    salary: '',
+    recruiterName: '',
+    companyName: '',
     benefits: [] as string[],
     image: 'https://tdesign.gtimg.com/miniprogram/images/avatar1.png',
     requirementTags: [] as RequirementTag[],
@@ -17,41 +24,44 @@ Page({
       return
     }
 
+    const job = jobMap.get(id)
+    if (job === undefined) {
+      return
+    }
+
+    const getSalary = () => {
+      const salary = job.benefits.salary
+      if (salary[2] === JobSalaryPaymentMethod.NEGOTIABLE) {
+        return '面议'
+      }
+      return `${[salary[0], salary[1]].join('-')}元/${salary[2]}`
+    }
+
+    const requirementLines = (job.description ?? '').split('\n');
+
     this.setData({
-      benefits: [
-        '交通补助',
-        '话补',
-        '节日福利',
-        '晋升空间',
-        '绩效奖励',
-        '工龄奖',
-        '生日福利',
-        '社保补助',
-        '社保',
-        '高温补贴'
-      ],
+      name: job.name,
+      salary: getSalary(),
+      recruiterName: job.recruiterName,
+      companyName: job.companyName,
+      form: job.form,
+      recruitmentNum: job.recruitmentNumber,
+      benefits: job.benefits.items,
       requirementTags: [
         {
-          text: '31-49岁',
+          text: `${job.requirements.age.join('-')}岁`,
           icon: 'user',
         },
         {
-          text: '两年经验',
+          text: `${job.requirements.experience.join('-')}年经验`,
           icon: 'work'
         },
         {
-          text: '中专/技校',
+          text: job.requirements.education,
           icon: 'education'
-        }
+        },
       ],
-      requirementLines: [
-        '1. 熟悉管家婆系统',
-        '2. 应收应付',
-        '3. 对账 凭证',
-        '4. 数据统筹',
-        '5. 办公软件运用',
-        '6. 品德优秀 勤奋 做事仔细认真'
-      ]
+      requirementLines
     })
   },
   onReady() {

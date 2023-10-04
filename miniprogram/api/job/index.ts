@@ -1,8 +1,9 @@
 import {createGetApi} from "../util";
-import {JobSummaryRaw} from "../../types/JobInfo";
+import {JobInfo} from "../../types/JobInfo";
 
 const url = {
   recommendJob: '/jobs/recommend',
+  openJobs: '/dev/jobs'
 }
 
-export const recommendJob = createGetApi<JobSummaryRaw[]>(url.recommendJob)
+export const recommendJob = createGetApi<JobInfo[]>(url.openJobs)

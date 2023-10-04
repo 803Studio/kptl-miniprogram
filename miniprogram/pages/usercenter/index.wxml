@@ -2,155 +2,38 @@
   <view>
     <t-navbar title="我的" />
   </view>
-
-  <view class="user-center-summary">
-    <view class="user-status">
-      <view class="user-avatar">
-        <t-avatar
-          size="large"
-          image="https://tdesign.gtimg.com/miniprogram/images/avatar1.png"
-        />
-      </view>
-      <view class="user-name">
-        <view style="font-size: 48rpx;">
-          <text>陈大屌</text>
-        </view>
-        <view class="user-resume-status">
-          <view class="user-resume-status-point"></view>
-          <view>
-            <text>完全公开</text>
-          </view>
-        </view>
-      </view>
+  <!-- header start -->
+  <block wx:if="{{!isLogin}}">
+    <view bind:tap="userCenterLogin" class="user-center-guest-header">
+      <text style="color: white; font-size: 50rpx;">立即登录 ></text>
+    </view>
+  </block>
+  <job-seeker-header wx:else/>
+  <!-- header end -->
+  <view class="user-center-content">
+    <view wx:if="{{!isLogin}}">
+      <view style="height: 1000rpx;"></view>
     </view>
 
-    <view class="user-resume-button">
+    <job-seeker-content wx:else bind:logout="onLogout"/>
+
+    <view class="user-center-footer">
       <view>
-        <text>编辑简历 ></text>
+        <text>靠谱铜梁</text>
+        <text>服务热线:</text>
+        <text>1145141919810</text>
       </view>
       <view>
-        <text>完整度65%</text>
+        <text>渝ICP备19000000号-1</text>
+      </view>
+      <view>
+        <text>人力资源服务许可证</text>
+      </view>
+      <view>
+        <text>版权信息</text>
+        <text>隐私政策</text>
+        <text>用户协议</text>
       </view>
     </view>
-  </view>
-
-  <view class="user-center-detail">
-    <view class="user-resume-notice">
-      <view>
-        <text-icon text="检查到您的简历有5个优化项" icon="close" space="10rpx"/>
-      </view>
-      <view>
-        <text>立即优化 ></text>
-      </view>
-    </view>
-
-    <base-card title="账户信息">
-      <view class="access-info-card">
-        <view class="access-info-cell">
-          <view class="info-cell-num">
-            <text>1</text>
-          </view>
-          <view class="info-cell-text">
-            <text>投递记录</text>
-          </view>
-        </view>
-        <view class="access-info-cell">
-          <view class="info-cell-num">
-            <text>1</text>
-          </view>
-          <view class="info-cell-text">
-            <text>面试通知</text>
-          </view>
-        </view>
-        <view class="access-info-cell">
-          <view class="info-cell-num">
-            <text>0</text>
-          </view>
-          <view class="info-cell-text">
-            <text>收藏职位</text>
-          </view>
-        </view>
-        <view class="access-info-cell">
-          <view class="info-cell-num">
-            <text>6</text>
-          </view>
-          <view class="info-cell-text">
-            <text>谁看过我</text>
-          </view>
-        </view>
-      </view>
-    </base-card>
-
-    <base-card title="求职服务">
-      <view slot="ex" class="user-resume-status">
-        <view class="user-resume-status-point"></view>
-        <view>
-          <text>离职</text>
-        </view>
-      </view>
-
-      <view class="job-seeker-service">
-        <view class="resume-service-button">
-          <view class="resume-service-button-text">
-            <text>刷新简历</text>
-            <text style="color: #9a9a9a; margin-top: 24rpx;">获得更多曝光</text>
-          </view>
-          <view class="resume-service-button-logo">
-            <t-icon name="rotate" size="64rpx" color="#01bc4c"/>
-          </view>
-        </view>
-
-        <view class="resume-service-button">
-          <view class="resume-service-button-text">
-            <text>完善简历</text>
-            <text style="color: #9a9a9a; margin-top: 24rpx;">提高竞争力</text>
-          </view>
-          <view class="resume-service-button-logo">
-            <t-icon name="task" size="64rpx" color="#ff6203"/>
-          </view>
-        </view>
-      </view>
-    </base-card>
-
-    <base-card>
-      <t-cell
-        title="我看过的"
-        note="查看"
-        bordered="{{false}}"
-        arrow
-        style="padding: 0 0 36rpx 0;"
-      />
-      <t-cell
-        title="屏蔽企业"
-        note="未屏蔽"
-        bordered="{{false}}"
-        arrow
-        style="padding: 0 0 36rpx 0;"
-      />
-      <t-cell
-        title="简历状态"
-        note="完全公开"
-        bordered="{{false}}"
-        arrow
-        style="padding: 0 0 36rpx 0;"
-      />
-      <t-cell
-        title="账号设置"
-        note="已绑定"
-        bordered="{{false}}"
-        arrow
-        style="padding: 0;"
-      />
-    </base-card>
-
-    <base-card>
-      <t-cell
-        title="我要招人"
-        note="切换身份"
-        bordered="{{false}}"
-        arrow
-        style="padding: 0;"
-      />
-    </base-card>
   </view>
 </view>

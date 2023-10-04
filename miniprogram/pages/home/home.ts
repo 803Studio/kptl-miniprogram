@@ -1,11 +1,20 @@
 import * as wxp from '../../utils/wx'
 import {fetchJobsList} from "../../service/jobs/fetchJobs";
-import {JobSummaryToShow} from "../../types/JobInfo";
+import {JobInfo} from "../../types/JobInfo";
 
 Page({
   data: {
     isLoading: false,
-    jobList: [] as JobSummaryToShow[]
+    jobListLoadStatus: 0,
+    jobList: [] as JobInfo[],
+    swiperList: [
+      'https://tdesign.gtimg.com/miniprogram/images/swiper1.png',
+      'https://tdesign.gtimg.com/miniprogram/images/swiper2.png',
+      'https://tdesign.gtimg.com/miniprogram/images/swiper1.png',
+      'https://tdesign.gtimg.com/miniprogram/images/swiper2.png',
+      'https://tdesign.gtimg.com/miniprogram/images/swiper1.png',
+      'https://tdesign.gtimg.com/miniprogram/images/swiper2.png',
+    ]
   },
   privateData: {
 
@@ -29,7 +38,9 @@ Page({
     this.init()
   },
   onReachBottom() {
-
+    if (this.data.jobListLoadStatus === 0) {
+      this.loadJobsList(false)
+    }
   },
   onShareAppMessage() {
 
@@ -42,7 +53,7 @@ Page({
     this.setData({
       isLoading: true
     })
-    await this.loadJobsList()
+    await this.loadJobsList(true)
     this.setData({
       isLoading: false
     })
@@ -51,9 +62,24 @@ Page({
     if (fresh) {
       await wxp.pageScrollTo({scrollTop: 0})
     }
-    this.setData({
-      jobList: await fetchJobsList()
-    })
+
+    this.setData({jobListLoadStatus: 1})
+
+    const index = fresh ? 0 : this.data.jobList.length
+
+    await fetchJobsList(index, index + 10)
+      .then(res => {
+        this.setData({
+          jobList: fresh ? res : this.data.jobList.concat(res),
+          jobListLoadStatus: 0
+        })
+      })
+      .catch(reason => {
+        this.setData({
+          jobListLoadStatus: 3
+        })
+        console.log(reason)
+      })
   },
   handleJobListClick(ev: any) {
     wx.navigateTo({
@@ -64,5 +90,8 @@ Page({
     wx.navigateTo({
       url: '/pages/jobs/search/index',
     })
+  },
+  onReTry() {
+    this.loadJobsList(false)
   }
 })

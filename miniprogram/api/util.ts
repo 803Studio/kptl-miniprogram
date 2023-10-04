@@ -1,6 +1,13 @@
-const apiServer = 'http://api.cdl.zone/kptl'
+import {userLocalStore} from "../store/comm/user";
 
-type GetQuery = Record<string, string>
+const apiServer = 'https://api.cdl.zone/kptl'
+
+type GetQuery = Record<string, string | number>
+const getHeader = () => {
+  return {
+    'Access-Token': userLocalStore.get('token')
+  }
+}
 
 const fmtUrl = (path: string, q?: GetQuery): string => {
   if (q === undefined) return apiServer + path
@@ -13,7 +20,7 @@ const fmtUrl = (path: string, q?: GetQuery): string => {
       temp.push(`${key}${value === '' ? '': '='}${value}`)
     }
   }
-  return temp.join('&')
+  return `${apiServer}${path}?${temp.join('&')}`
 }
 
 export const createGetApi = <T>(path: string) => {
@@ -23,6 +30,7 @@ export const createGetApi = <T>(path: string) => {
       wx.request({
         url,
         method: "GET",
+        header: getHeader(),
         timeout: 20000,
         fail,
         success: response => {
@@ -38,6 +46,7 @@ export const createPostApi = <T>(path: string) => {
     wx.request({
       url: fmtUrl(path),
       method: "POST",
+      header: getHeader(),
       fail,
       data: body,
       success: (response) => {

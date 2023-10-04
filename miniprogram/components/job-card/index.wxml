@@ -4,29 +4,30 @@
 >
   <view class="job-title">
     <t-tag wx:if="{{info === undefined}}"></t-tag>
-    <text>{{info.raw.jobName}}</text>
+    <text>{{info.name}}</text>
   </view>
 
   <view class="job-money">
     <view class="job-money-info">
       <view style="display: flex; color: #ff6000">
-        <view class="job-money-text" wx:if="{{info.raw.jobMoney.type !== 0}}">
-          <text>{{info.payNum}}</text>
+        <view class="job-money-text" wx:if="{{info.benefits.salary[2] !== '面议'}}">
+          <text>{{salary}}</text>
         </view>
         <view style="width: 10rpx" />
         <view class="job-money-type">
-          <text>{{info.payType}}</text>
+          <text wx:if="{{info.benefits.salary[2] !== '面议'}}">元/</text>
+          <text>{{payMethod}}</text>
         </view>
       </view>
       <view style="color: gray">
-        <text>{{info.time}}</text>
+        <text>{{time}}</text>
       </view>
     </view>
   </view>
 
   <view class="job-tags">
     <t-tag
-      wx:for="{{info.tags}}"
+      wx:for="{{items}}"
       wx:key="index"
       style="margin-right: 10rpx; margin-top: 10rpx;"
     >{{item}}</t-tag>
@@ -40,7 +41,7 @@
         size="small"
       />
       <view style="width: 20rpx" />
-      <text>{{info.raw.companyName}}</text>
+      <text>{{info.companyName}}</text>
       <view style="width: 10rpx"/>
       <t-tag
         theme="warning"

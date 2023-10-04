@@ -1,0 +1,30 @@
+<view>
+  <view class="user-status">
+    <view class="user-avatar">
+      <t-avatar
+        size="large"
+        image="https://tdesign.gtimg.com/miniprogram/images/avatar1.png"
+      />
+    </view>
+    <view class="user-name">
+      <view style="font-size: 48rpx;">
+        <text>测试账号1</text>
+      </view>
+      <view class="user-resume-status">
+        <view class="user-resume-status-point"></view>
+        <view>
+          <text>完全公开</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="user-resume-button" wx:if="{{false}}">
+    <view>
+      <text>编辑简历 ></text>
+    </view>
+    <view>
+      <text>完整度65%</text>
+    </view>
+  </view>
+</view>
